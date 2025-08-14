@@ -1,106 +1,283 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sleek Landing Page</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Figo's Jersey Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #1a1a1a;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+
+    .logo {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: #f4d35e;
+      text-shadow: 0 0 10px #f4d35e88;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f4d35e;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(to bottom, #1a1a1a, #111);
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background-color: #f4d35e;
+      color: #000;
+      padding: 12px 25px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1em;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ffe570;
+    }
+
+    .figo-pick {
+      background-color: #222;
+      margin: 20px 40px;
+      padding: 15px 20px;
+      border-left: 5px solid #f4d35e;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .figo-pick strong {
+      color: #f4d35e;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      width: 280px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .card h2 {
+      font-size: 1.2em;
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      color: #f4d35e;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #1a1a1a;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    /* Week Best Video Section */
+    .week-best-video {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      background: black;
+    }
+
+    .week-best-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #backBtn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: rgba(255, 255, 255, 0.85);
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .week-best-toggle {
+      margin: 20px 40px 0;
+    }
+
+    #weekBestBtn {
+      background-color: #1a1a1a;
+      color: white;
+      border: 2px solid white;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 0 5px black, 0 0 10px #000;
+    }
+
+    #weekBestBtn:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid black;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="overlay">
-      <a href="https://www.sleek.com" target="_blank" class="logo">Sleek</a>
-      <p>Just Do It.</p>
-      <a href="https://www.sleek.com/shop" target="_blank" class="btn">Shop Now</a>
-    </div>
+  <!-- WEEK BEST BUTTON -->
+  <section class="week-best-toggle">
+    <button id="weekBestBtn">WEEK BEST</button>
   </section>
 
-  <!-- About Section -->
-  <section class="about">
-    <h2>About Sleek</h2>
-    <p>Sleek is the world’s leading innovator in athletic footwear, apparel, equipment, and accessories. Our mission is to bring inspiration and innovation to every athlete in the world.</p>
+  <!-- MAIN CONTENT -->
+  <div id="mainContent">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">FIGO'S JERSEY</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="kits.html">Kits</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Figo's Pick Label -->
+    <section class="figo-pick">
+      <p>🔥 Figo’s Pick of the Week: <strong>NEWCASTLE HOME KIT</strong></p>
+    </section>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Welcome</h1>
+      <p>Top quality kits for your team or personal collection.</p>
+      <a href="https://wa.me/2348130489824" class="btn">Chat on WhatsApp</a>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="kits" class="products">
+      <a href="https://wa.me/2348130489824?text=i would like to buy?" class="card">
+        <img src="psg_away.jpg" alt="Home Kit">
+        <h2>PSG Away Kit</h2>
+        <p>₦16,147</p>
+      </a>
+      <a href="https://wa.me/2348130489824?text=i would like to buy?" class="card">
+        <img src="manchester_city_away.webp" alt="Away Kit">
+        <h2>Manchester City Away Kit</h2>
+        <p>₦17,500</p>
+      </a>
+      <a href="https://wa.me/2348130489824?text=i would like to buy?" class="card">
+        <img src="lazio_third.webp" alt="Third Kit">
+        <h2>Lazio Third Kit</h2>
+        <p>₦16,583</p>
+      </a>
+    </section>
+
+  </div>
+
+  <!-- WEEK BEST VIDEO -->
+  <section class="week-best-video" id="weekBestVideo">
+    <video autoplay muted loop id="bestVideo">
+      <source src="week-video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <button id="backBtn">← Back</button>
   </section>
 
-  <!-- Products Section -->
-  <section class="products">
-    <h2>Featured Products</h2>
-    <div class="product-grid">
-      <a href="https://www.sleek.com/air-max-270" target="_blank" class="product-card">
-        <img src="images/shoe1.jpg" alt="Shoe 1">
-        <h3>Sleek Pam Max</h3>
-        <p>$60</p>
-      </a>
-      <a href="https://www.sleek.com/zoom-fly-5" target="_blank" class="product-card">
-        <img src="images/shoe2.jpg" alt="Shoe 2">
-        <h3>Sleek Zoom</h3>
-        <p>$180</p>
-      </a>
-      <a href="https://www.sleek.com/air-zoom-pegasus-40" target="_blank" class="product-card">
-        <img src="images/shoe3.jpg" alt="Shoe 3">
-        <h3>Sleek Pegasus</h3>
-        <p>$120</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- More Products Section -->
-  <section class="products">
-    <h2>New Arrivals</h2>
-    <div class="product-grid">
-      <a href="https://www.sleek.com/air-force-1" target="_blank" class="product-card">
-        <img src="images/shoe4.jpg" alt="Shoe 4">
-        <h3>Sleek Air Force 1</h3>
-        <p>$100</p>
-      </a>
-      <a href="https://www.sleek.com/jordan-1" target="_blank" class="product-card">
-        <img src="images/shoe5.jpg" alt="Shoe 5">
-        <h3>Sleek Jordan 1</h3>
-        <p>$150</p>
-      </a>
-      <a href="https://www.sleek.com/blazer-mid-77" target="_blank" class="product-card">
-        <img src="images/shoe6.jpg" alt="Shoe 6">
-        <h3>Sleek Blazer Mid</h3>
-        <p>$95</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="testimonials">
-    <h2>What Our Customers Say</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial">
-        <p>"These are the most comfortable shoes I've ever worn!"</p>
-        <span>- Alex</span>
-      </div>
-      <div class="testimonial">
-        <p>"The design and quality are unmatched."</p>
-        <span>- Maria</span>
-      </div>
-      <div class="testimonial">
-        <p>"Perfect for running and casual wear."</p>
-        <span>- David</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newsletter Signup -->
-  <section class="newsletter">
-    <h2>Join the Sleek Club</h2>
-    <p>Get exclusive offers and updates straight to your inbox.</p>
-    <form>
-      <input type="email" placeholder="Enter your email">
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Sleek. All rights reserved. Visit <a href="https://www.sleek.com" target="_blank">Sleek.com</a></p>
+    <p>&copy; 2025 Figo's Jersey Collection. All rights reserved.</p>
   </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    const weekBestBtn = document.getElementById('weekBestBtn');
+    const backBtn = document.getElementById('backBtn');
+    const mainContent = document.getElementById('mainContent');
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    const videoSection = document.getElementById('weekBestVideo');
+
+    weekBestBtn.addEventListener('click', () => {
+      mainContent.style.display = 'none';
+      header.style.display = 'none';
+      footer.style.display = 'none';
+      videoSection.style.display = 'block';
+    });
+
+    backBtn.addEventListener('click', () => {
+      mainContent.style.display = 'block';
+      header.style.display = 'flex';
+      footer.style.display = 'block';
+      videoSection.style.display = 'none';
+    });
+  </script>
 
 </body>
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Figo's Jersey Kits</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">FIGO'S JERSEY</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="kits.html" class="active">Kits</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Our Kits Collection</h1>
+      <p>Explore the latest kits available for your favorite teams.</p>
+    </section>
+
+    <section id="league-section">
+      <button class="league-btn active" data-league="premier_league">Premier League</button>
+      <button class="league-btn" data-league="serie_a">Serie A</button>
+      <button class="league-btn" data-league="ligue_1">Ligue 1</button>
+    </section>
+
+    <section id="team-section"></section>
+    <section id="kit-section" class="products"></section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Figo's Jersey Collection. All rights reserved.</p>
+  </footer>
+
+  <script src="kits.js"></script>
+</body>
+</html>
